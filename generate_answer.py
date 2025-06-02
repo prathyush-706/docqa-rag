@@ -4,7 +4,6 @@ from typing import List, Dict
 from dotenv import load_dotenv
 from google.genai import types
 import time
-from tenacity import retry, stop_after_attempt, wait_exponential
 
 load_dotenv()
 
@@ -13,11 +12,7 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 print("GOOGLE_API_KEY: ", os.getenv("GOOGLE_API_KEY"))
 
-@retry(
-    stop=stop_after_attempt(3),
-    wait=wait_exponential(multiplier=1, min=4, max=10),
-    reraise=True
-)
+
 def generate_answer(question: str,
                     context_chunks: List[str],
                     conversation_history: List[Dict[str, str]] = None,
