@@ -39,7 +39,7 @@ class DocumentQA:
         # 3. generate with conversation history
         answer = generate_answer(
             question, 
-            list(candidates[:5]), 
+            list(candidates[:k]), 
             conversation_history=self.conversation_history[-max_history:]  # Only use last max_history conversations
         )
         # 4. update conversation history

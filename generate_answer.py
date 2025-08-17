@@ -16,7 +16,7 @@ print("GOOGLE_API_KEY: ", os.getenv("GOOGLE_API_KEY"))
 def generate_answer(question: str,
                     context_chunks: List[str],
                     conversation_history: List[Dict[str, str]] = None,
-                    model="gemini-2.5-flash-preview-05-20",  # Using more stable model
+                    model="gemini-2.5-flash-preview-05-20",
                     max_tokens: int = 256
                    ) -> str:
     # Build conversation context
